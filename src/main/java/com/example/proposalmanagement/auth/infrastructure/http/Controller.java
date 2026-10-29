@@ -1,5 +1,6 @@
 package com.example.proposalmanagement.auth.infrastructure.http;
 
+import com.example.proposalmanagement.auth.infrastructure.persistence.entity.User;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping
-    public String hello(@AuthenticationPrincipal UserDetails user) {
+    public String hello(@AuthenticationPrincipal User user) {
         return "hello world " + user.getUsername();
     }
 
